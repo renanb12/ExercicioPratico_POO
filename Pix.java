@@ -1,5 +1,5 @@
 import java.time.LocalDate;
-
+import java.time.temporal.ChronoUnit;
 public class Pix extends Pagamento implements Estornavel {
 
     public Pix(String idTransacao, double valor, LocalDate data) {
@@ -15,12 +15,17 @@ public class Pix extends Pagamento implements Estornavel {
     // TODO: imprima uma mensagem confirmando que o Pix foi recebido/confirmado
     @Override
     public void enviarNotificacao() {
+        System.out.println("Pix confirmado.");
     }
 
     // TODO: Pix só pode ser estornado em até 90 dias após a data do pagamento.
     // Compare getData() com LocalDate.now() usando ChronoUnit.DAYS ou Period.
     @Override
     public boolean estornar() {
-        return false;
+        if (ChronoUnit.DAYS.between(getData(), LocalDate.now()) > 90) {
+            return false;
+        }
+        
+        return true;
     }
 }
