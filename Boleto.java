@@ -12,11 +12,12 @@ public class Boleto extends Pagamento {
     // TODO: taxa fixa de R$ 3,49
     @Override
     public double calcularTaxa() {
-        return 0.0;
+        return 3.49;
     }
 
     // TODO: imprima uma mensagem confirmando que o boleto foi gerado
     @Override
     public void enviarNotificacao() {
+        System.out.println("Boleto gerado.");
     }
 }
