@@ -46,6 +46,12 @@ public class Main {
                 System.out.println(e.estornar());
             }
         }
+
+        // Desafio:
+        System.out.println("Desafio:");
+        for (Pagamento pagamento : pagamentos) {
+            imprimirCodigoRastreio(pagamento);
+        }
     }
 
     public static void imprimirCodigoRastreio(Object objeto){
@@ -57,7 +63,6 @@ public class Main {
     public static void escreverLista(List<Pagamento> lista){
         for (Pagamento pagamento : lista) {
             System.out.println(pagamento);
-            imprimirCodigoRastreio(pagamento);
         }
         System.out.println("----------------------------------------------------");
     }
