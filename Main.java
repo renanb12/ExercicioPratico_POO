@@ -18,16 +18,47 @@ public class Main {
 
         // TODO 4: percorra a lista chamando enviarNotificacao() em cada pagamento,
         // tratando-os de forma polimórfica (sem checar o tipo de cada um).
+        System.out.println("TODO 4:");
+        for (Pagamento pagamento : pagamentos) {
+            pagamento.enviarNotificacao();
+        }
 
         // TODO 5: ordene a lista pela ordem natural (compareTo, definido em Pagamento)
         // usando Collections.sort(pagamentos) e imprima o resultado.
-
+        System.out.println("TODO 5:");
+        Collections.sort(pagamentos);
+        escreverLista(pagamentos);
         // TODO 6: crie um Comparator<Pagamento> que ordene por DATA (mais antigo primeiro)
         // e ordene a lista com ele. Duas formas possíveis:
         //   Collections.sort(pagamentos, comparator);
         //   pagamentos.sort(Comparator.comparing(Pagamento::getData));
+        System.out.println("TODO 6:");
+        Comparator<Pagamento> porData = Comparator.comparing(Pagamento::getData);
+        Collections.sort(pagamentos, porData);
+        escreverLista(pagamentos);
 
         // TODO 7: percorra a lista e, para cada pagamento que também for Estornavel,
         // chame estornar() e imprima o resultado (use "if (p instanceof Estornavel e) { ... }").
+        System.out.println("TODO 7:");
+        for (Pagamento pagamento : pagamentos) {
+            System.out.println(pagamento);
+            if (pagamento instanceof Estornavel e) {
+                System.out.println(e.estornar());
+            }
+        }
+    }
+
+    public static void imprimirCodigoRastreio(Object objeto){
+        if (objeto instanceof Rastreavel e) {
+            System.out.println(e.codigoRastreio());
+        }
+    }
+
+    public static void escreverLista(List<Pagamento> lista){
+        for (Pagamento pagamento : lista) {
+            System.out.println(pagamento);
+            imprimirCodigoRastreio(pagamento);
+        }
+        System.out.println("----------------------------------------------------");
     }
 }
