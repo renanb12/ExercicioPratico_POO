@@ -22,10 +22,6 @@ public class Pix extends Pagamento implements Estornavel {
     // Compare getData() com LocalDate.now() usando ChronoUnit.DAYS ou Period.
     @Override
     public boolean estornar() {
-        if (ChronoUnit.DAYS.between(getData(), LocalDate.now()) > 90) {
-            return false;
-        }
-        
-        return true;
+        return  ChronoUnit.DAYS.between(getData(), LocalDate.now()) <= 90;
     }
 }
